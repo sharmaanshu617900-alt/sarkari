@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sarkari Updates — Sarkari Jobs, Admit Cards, Results & Answer Keys</title>
+  <meta name="description" content="Sarkari Updates: Latest Sarkari Jobs 2026, Admit Cards, Results, Answer Keys and Syllabus for SSC, UPSC, Railway, Banking, Police and Teaching exams. Apply online now." />
+  <meta name="keywords" content="sarkari jobs, sarkari result, admit card, sarkari exam, ssc, upsc, railway, banking jobs" />
+  <meta property="og:title" content="Sarkari Updates — Jobs, Admit Cards & Results" />
+  <meta property="og:description" content="India's fastest growing portal for Sarkari Jobs, Admit Cards, Results and Answer Keys." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇮🇳</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Structured data: WebSite + FAQPage schema (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Sarkari Updates",
+    "alternateName": "Sarkari Jobs, Admit Card & Result Portal",
+    "url": "https://www.sarkariupdates.in/",
+    "inLanguage": "en-IN",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.sarkariupdates.in/jobs.html?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What are Sarkari Jobs?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sarkari Jobs are jobs in central and state government departments — SSC, UPSC, Railway, Banking, Police, Teaching and more — offering job security, pensions and attractive pay scales." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I apply for a job on this site?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Open any job card and click the Apply Online button. You'll be redirected to the official application portal." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this portal free to use?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes — 100% free. We earn through ads and affiliate links so aspirants never pay to see or apply for jobs." }
+      },
+      {
+        "@type": "Question",
+        "name": "Are the notifications official?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every update links to the official government website such as ssc.gov.in, upsc.gov.in or rrb.gov.in." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body data-page="home">
+
+  <!-- ======= HERO ======= -->
+  <header class="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="container hero-inner">
+      <span class="eyebrow fade-up">🇮🇳 India's Trusted Government Job Portal</span>
+      <h1 class="fade-up d1">Every <span class="grad-text">Sarkari Update</span><br />in One Place</h1>
+      <p class="fade-up d2">Latest Sarkari Jobs, Admit Cards, Results, Answer Keys & Syllabus for SSC, UPSC, Railway, Banking, Police and Teaching — updated 24/7, verified from official sources.</p>
+
+      <form class="search-wrap fade-up d3" id="heroSearch">
+        <div class="search-box">
+          <span class="ic">🔍</span>
+          <input type="text" placeholder="Search jobs, exams, admit cards… e.g. SSC CGL, UPSC" aria-label="Search jobs" />
+          <button type="submit">Search</button>
+        </div>
+      </form>
+      <div class="popular-tags fade-up d3">
+        <span>Popular:</span>
+        <button class="tag-chip" data-chip="SSC CGL">SSC CGL</button>
+        <button class="tag-chip" data-chip="UPSC">UPSC</button>
+        <button class="tag-chip" data-chip="Railway">Railway</button>
+        <button class="tag-chip" data-chip="Police">Police</button>
+        <button class="tag-chip" data-chip="Banking">Banking</button>
+      </div>
+
+      <div class="hero-stats" id="heroStats"></div>
+    </div>
+  </header>
+
+  <!-- ======= CATEGORIES ======= -->
+  <section class="section" style="padding-top:40px">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Browse by Type</span>
+          <h2>Find Your Update Fast</h2>
+          <p>From fresh notifications to final results — jump straight to what you need.</p>
+        </div>
+        <a class="link-more" href="jobs.html">View all updates →</a>
+      </div>
+      <div class="cat-grid" id="catGrid"></div>
+    </div>
+  </section>
+
+  <!-- ======= AD SLOT ======= -->
+  <div class="container">
+    <div class="ad-slot reveal" id="ads">
+      <span class="ad-badge">Advertisement — Google AdSense ready (728 × 90)</span>
+    </div>
+  </div>
+
+  <!-- ======= LATEST UPDATES ======= -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Fresh from the Source</span>
+          <h2>Latest Sarkari Updates</h2>
+          <p>Notifications released in the last 30 days — verified against official websites.</p>
+        </div>
+        <a class="link-more" href="jobs.html">All updates →</a>
+      </div>
+      <div class="list-grid" id="latestGrid"></div>
+    </div>
+  </section>
+
+  <!-- ======= CTA BAND ======= -->
+  <section class="section" style="padding-top:0" id="subscribe">
+    <div class="container">
+      <div class="cta-band reveal">
+        <h2>Never Miss a Sarkari Deadline Again</h2>
+        <p>Get instant WhatsApp & Telegram alerts the moment a new notification, admit card or result is published.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#" onclick="Sarkari.showToast('Alert subscription is a demo — connect your channel in production!'); return false;">✈️ Join Telegram</a>
+          <a class="btn btn-ghost" href="#" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.35);color:#fff" onclick="Sarkari.showToast('Alert subscription is a demo — connect your channel in production!'); return false;">💬 Join WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= HOW IT WORKS ======= -->
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Why Sarkari Updates</span>
+          <h2>Built for Serious Aspirants</h2>
+        </div>
+      </div>
+      <div class="cat-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+        <div class="cat-card reveal">
+          <div class="cat-icon">⚡</div>
+          <h3>First-to-Publish</h3>
+          <p>Updates go live within minutes of the official release.</p>
+        </div>
+        <div class="cat-card reveal">
+          <div class="cat-icon">✅</div>
+          <h3>100% Verified</h3>
+          <p>Every link points to the official government website.</p>
+        </div>
+        <div class="cat-card reveal">
+          <div class="cat-icon">🗂️</div>
+          <h3>Complete Details</h3>
+          <p>Dates, fees, age limit, qualification — all in one clean page.</p>
+        </div>
+        <div class="cat-card reveal">
+          <div class="cat-icon">🔔</div>
+          <h3>Instant Alerts</h3>
+          <p>Telegram & WhatsApp alerts so you never miss a deadline.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= FAQ ======= -->
+  <section class="section" style="padding-top:0">
+    <div class="container" style="max-width:820px">
+      <div class="section-head reveal" style="justify-content:center;text-align:center">
+        <div style="text-align:center;margin:0 auto">
+          <span class="eyebrow" style="justify-content:center">Doubts?</span>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+      </div>
+      <div class="card" style="padding:8px 24px">
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q">What are Sarkari Jobs?<span class="faq-ic">+</span></button>
+            <div class="faq-a"><p>Sarkari Jobs (सरकारी नौकरी) are jobs in central and state government departments — SSC, UPSC, Railway, Banking, Police, Teaching and more. They offer job security, pensions and attractive pay scales.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">How do I apply for a job on this site?<span class="faq-ic">+</span></button>
+            <div class="faq-a"><p>Open any job card and click the <strong>Apply Online</strong> button. You'll be redirected to the official application portal. Always read the full notification PDF before applying.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Is this portal free to use?<span class="faq-ic">+</span></button>
+            <div class="faq-a"><p>Yes — 100% free. We earn through ads and affiliate links so aspirants never pay to see or apply for jobs. Never pay anyone who promises a government job in exchange for money.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Are the notifications official?<span class="faq-ic">+</span></button>
+            <div class="faq-a"><p>Yes. Every update links to the official government website (ssc.gov.in, upsc.gov.in, rrb.gov.in etc.). We summarise the key details for you — the full notification is always one click away.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= AD SLOT ======= -->
+  <div class="container">
+    <div class="ad-slot reveal">
+      <span class="ad-badge">Advertisement — Sponsored (Ed-Tech / Test Series)</span>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
