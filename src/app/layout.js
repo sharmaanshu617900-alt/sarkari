@@ -54,6 +54,17 @@ export default function RootLayout({ children }) {
             })(window,document,'script','dataLayer','GTM-NTW3Z9T9');
           `}
         </Script>
+        {/* Google Analytics (gtag.js) */}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-V5B5LKW1DN" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-V5B5LKW1DN');
+          `}
+        </Script>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇮🇳</text></svg>" />
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet" />
         <script
