@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
 import CategoryGrid from '@/components/CategoryGrid';
+import AdBanner from '@/components/AdBanner';
 import JobCard from '@/components/JobCard';
 import { getAllPosts, getStats } from '@/lib/api';
 import Link from 'next/link';
@@ -20,6 +21,8 @@ export default function Home() {
       <Header />
       <Hero stats={stats} />
       <CategoryGrid stats={stats} />
+
+      <AdBanner dataAdSlot="7949092998" />
 
       {/* ======= LATEST JOBS ======= */}
       <section className="section">
