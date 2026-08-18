@@ -42,6 +42,24 @@ function savePosts(posts) {
 
 // Target government websites / RSS feeds
 const SOURCES = [
+  // --- National Aggregators (Crucial for small towns/panchayats) ---
+  {
+    name: 'FreeJobAlert',
+    url: 'https://www.freejobalert.com/',
+    description: 'Aggregates all small state and district level jobs across India'
+  },
+  {
+    name: 'Jagran Josh',
+    url: 'https://www.jagranjosh.com/sarkari-naukri',
+    description: 'Sarkari Naukri updates from Jagran, covers local news'
+  },
+  {
+    name: 'Sarkari Result',
+    url: 'https://www.sarkariresult.com',
+    description: 'Aggregated sarkari job portal'
+  },
+
+  // --- Central Govt ---
   {
     name: 'SSC Official',
     url: 'https://ssc.gov.in',
@@ -62,11 +80,70 @@ const SOURCES = [
     url: 'https://ibps.in',
     description: 'Institute of Banking Personnel Selection - PO, Clerk, SO updates'
   },
+
+  // --- Armed Forces ---
   {
-    name: 'Sarkari Result',
-    url: 'https://www.sarkariresult.com',
-    description: 'Aggregated sarkari job portal'
+    name: 'Join Indian Army',
+    url: 'https://joinindianarmy.nic.in/',
+    description: 'Indian Army Recruitment'
   },
+
+  // --- State Boards (Hindi Belt & Majors) ---
+  // UP
+  {
+    name: 'UPPSC',
+    url: 'https://uppsc.up.nic.in/',
+    description: 'Uttar Pradesh Public Service Commission'
+  },
+  {
+    name: 'UPSSSC',
+    url: 'https://upsssc.gov.in/',
+    description: 'UP Subordinate Services Selection Commission'
+  },
+  // Bihar
+  {
+    name: 'BPSC',
+    url: 'https://bpsc.bih.nic.in/',
+    description: 'Bihar Public Service Commission'
+  },
+  {
+    name: 'CSBC Bihar Police',
+    url: 'https://csbc.bih.nic.in/',
+    description: 'Central Selection Board of Constable (Bihar)'
+  },
+  // MP
+  {
+    name: 'MPPSC',
+    url: 'https://mppsc.mp.gov.in/',
+    description: 'Madhya Pradesh Public Service Commission'
+  },
+  {
+    name: 'MP ESB',
+    url: 'https://esb.mp.gov.in/',
+    description: 'Madhya Pradesh Employees Selection Board (Vyapam)'
+  },
+  // Rajasthan
+  {
+    name: 'RPSC',
+    url: 'https://rpsc.rajasthan.gov.in/',
+    description: 'Rajasthan Public Service Commission'
+  },
+  {
+    name: 'RSMSSB',
+    url: 'https://rsmssb.rajasthan.gov.in/',
+    description: 'Rajasthan Subordinate and Ministerial Services Selection Board'
+  },
+  // Delhi & Haryana
+  {
+    name: 'DSSSB',
+    url: 'https://dsssb.delhi.gov.in/',
+    description: 'Delhi Subordinate Services Selection Board'
+  },
+  {
+    name: 'HSSC',
+    url: 'https://hssc.gov.in/',
+    description: 'Haryana Staff Selection Commission'
+  }
 ];
 
 // Website se text content fetch karo
