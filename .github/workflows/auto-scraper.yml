@@ -1,0 +1,64 @@
+name: AI Scraper Auto-Pilot
+
+on:
+  schedule:
+    # Run every 4 hours
+    - cron: '0 */4 * * *'
+  workflow_dispatch:
+    # Allow running manually from GitHub Actions tab
+
+jobs:
+  scrape-and-update:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Important: Fetch all history for commit
+          fetch-depth: 0
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Install dependencies
+        run: npm ci || npm install
+        
+      - name: Setup Environment Variables
+        run: |
+          echo "NVIDIA_API_KEY=${{ secrets.NVIDIA_API_KEY }}" > .env.local
+          
+      - name: Setup Google Service Account (if available)
+        run: |
+          if [ -n "${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}" ]; then
+            echo "${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}" > service-account.json
+          fi
+          
+      - name: Run AI Scraper
+        run: npm run scrape
+        
+      - name: Run Google Indexing Notifier
+        run: |
+          if [ -f "service-account.json" ]; then
+            npm run notify || true
+          else
+            echo "Skipping Indexing API - service-account.json not found."
+          fi
+          
+      - name: Commit and Push if changes exist
+        run: |
+          git config --global user.name "Sarkari Bot"
+          git config --global user.email "bot@sarkariupdates.in"
+          
+          git add data/posts.json
+          
+          # Only commit if there are changes
+          if git diff --cached --quiet; then
+            echo "No new jobs found. Skipping commit."
+          else
+            git commit -m "🤖 Auto-update: Latest Sarkari Jobs added by AI"
+            git push
+            echo "New jobs pushed successfully! Vercel build will trigger automatically."
+          fi
