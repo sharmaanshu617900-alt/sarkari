@@ -342,13 +342,25 @@ input, select { font-family: inherit; }
 [data-theme="dark"] .drawer-panel a:hover { background: rgba(255,255,255,0.08); }
 
 /* ---------- Hero ---------- */
+/* For smooth property animation */
+@property --x { syntax: '<percentage>'; inherits: false; initial-value: 85%; }
+@property --y { syntax: '<percentage>'; inherits: false; initial-value: -10%; }
+@property --x2 { syntax: '<percentage>'; inherits: false; initial-value: 0%; }
+@property --y2 { syntax: '<percentage>'; inherits: false; initial-value: 110%; }
+
 .hero {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(900px 420px at 85% -10%, rgba(242, 107, 29, 0.16), transparent 60%),
-    radial-gradient(700px 380px at 0% 110%, rgba(28, 74, 140, 0.14), transparent 60%),
+    radial-gradient(1100px 500px at var(--x) var(--y), rgba(242, 107, 29, 0.14), transparent 60%),
+    radial-gradient(900px 450px at var(--x2) var(--y2), rgba(28, 74, 140, 0.12), transparent 60%),
     var(--bg);
+  animation: heroMesh 18s ease-in-out infinite alternate;
+}
+@keyframes heroMesh {
+  0% { --x: 85%; --y: -10%; --x2: 0%; --y2: 110%; }
+  50% { --x: 95%; --y: 20%; --x2: 10%; --y2: 90%; }
+  100% { --x: 75%; --y: 5%; --x2: -5%; --y2: 100%; }
 }
 .hero-grid-bg {
   position: absolute;
@@ -542,6 +554,21 @@ input, select { font-family: inherit; }
   padding: 20px;
   cursor: pointer;
   position: relative;
+  z-index: 1;
+  background: var(--bg-elev);
+}
+.job-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  background: var(--brand-grad);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+  transform: scale(0.95) translateY(10px);
+  filter: blur(22px);
+  pointer-events: none;
 }
 .job-card:focus-visible,
 .mini-item:focus-visible {
@@ -550,9 +577,16 @@ input, select { font-family: inherit; }
   border-radius: var(--radius);
 }
 .job-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-md);
-  border-color: rgba(242, 107, 29, 0.35);
+  border-color: rgba(242, 107, 29, 0.4);
+}
+.job-card:hover::before {
+  opacity: 0.18;
+  transform: scale(1) translateY(4px);
+}
+[data-theme="dark"] .job-card:hover::before {
+  opacity: 0.35;
 }
 .job-card .org-badge {
   flex-shrink: 0;

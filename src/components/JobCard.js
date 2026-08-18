@@ -1,5 +1,7 @@
+"use client";
 import Link from 'next/link';
 import SaveJobBtn from '@/components/SaveJobBtn';
+import { motion } from 'framer-motion';
 
 const TYPE_STYLES = {
   job: { pill: 'type-job', label: '💼 JOB', badgeColor: 'linear-gradient(135deg, #f26b1d, #e0520f)' },
@@ -17,42 +19,50 @@ export default function JobCard({ post }) {
   const isExpired = daysLeft < 0;
 
   return (
-    <Link href={`/jobs/${post.id}`} className="card job-card">
-      <div className="org-badge" style={{ background: style.badgeColor }}>
-        {post.dept.substring(0, 3).toUpperCase()}
-      </div>
-      <div className="job-body">
-        <div className="job-top" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-          <div>
-            <span className={`type-pill ${style.pill}`}>{style.label}</span>
-            <span className="job-org">{post.org}</span>
-          </div>
-          <div style={{ position: 'absolute', top: '16px', right: '16px', zIndex: 10 }}>
-            <SaveJobBtn post={post} minimal={true} />
-          </div>
+    <motion.div 
+      initial={{ opacity: 0, y: 25 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.5, ease: [0.2, 0.8, 0.2, 1] }}
+      style={{ display: 'flex', flexDirection: 'column', height: '100%' }}
+    >
+      <Link href={`/jobs/${post.id}`} className="card job-card" style={{ height: '100%' }}>
+        <div className="org-badge" style={{ background: style.badgeColor }}>
+          {post.dept.substring(0, 3).toUpperCase()}
         </div>
-        <h3 className="job-title" style={{ paddingRight: '40px' }}>{post.title}</h3>
-        <p className="job-desc">{post.description}</p>
-        <div className="job-meta">
-          {post.vacancies > 0 && (
-            <span className="m"><span className="ic">👥</span> <strong>{post.vacancies.toLocaleString('en-IN')}</strong> Vacancies</span>
-          )}
-          {post.salary && (
-            <span className="m"><span className="ic">💰</span> {post.salary}</span>
-          )}
-          <span className="m">
-            <span className="ic">📅</span>
-            {isExpired ? (
-              <span style={{ color: 'var(--red)', fontWeight: 700 }}>Expired</span>
-            ) : isUrgent ? (
-              <span className="date-fresh">⚠️ {daysLeft} days left!</span>
-            ) : (
-              <>Last: {new Date(post.lastDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</>
+        <div className="job-body">
+          <div className="job-top" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+            <div>
+              <span className={`type-pill ${style.pill}`}>{style.label}</span>
+              <span className="job-org">{post.org}</span>
+            </div>
+            <div style={{ position: 'absolute', top: '16px', right: '16px', zIndex: 10 }}>
+              <SaveJobBtn post={post} minimal={true} />
+            </div>
+          </div>
+          <h3 className="job-title" style={{ paddingRight: '40px' }}>{post.title}</h3>
+          <p className="job-desc">{post.description}</p>
+          <div className="job-meta">
+            {post.vacancies > 0 && (
+              <span className="m"><span className="ic">👥</span> <strong>{post.vacancies.toLocaleString('en-IN')}</strong> Vacancies</span>
             )}
-          </span>
+            {post.salary && (
+              <span className="m"><span className="ic">💰</span> {post.salary}</span>
+            )}
+            <span className="m">
+              <span className="ic">📅</span>
+              {isExpired ? (
+                <span style={{ color: 'var(--red)', fontWeight: 700 }}>Expired</span>
+              ) : isUrgent ? (
+                <span className="date-fresh">⚠️ {daysLeft} days left!</span>
+              ) : (
+                <>Last: {new Date(post.lastDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</>
+              )}
+            </span>
+          </div>
         </div>
-      </div>
-      <div className="chev">›</div>
-    </Link>
+        <div className="chev">›</div>
+      </Link>
+    </motion.div>
   );
 }
