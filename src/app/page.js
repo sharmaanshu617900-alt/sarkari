@@ -88,8 +88,8 @@ export default function Home() {
             <h2>Never Miss a Sarkari Deadline Again</h2>
             <p>Get instant WhatsApp & Telegram alerts the moment a new notification is published.</p>
             <div className="hero-cta">
-              <a className="btn btn-primary" href="#">✈️ Join Telegram</a>
-              <a className="btn btn-ghost" href="#" style={{ background: "rgba(255,255,255,.12)", borderColor: "rgba(255,255,255,.35)", color: "#fff" }}>💬 Join WhatsApp</a>
+              <a className="btn btn-primary" href="https://t.me/sarkariupdates" target="_blank" rel="noopener noreferrer">✈️ Join Telegram</a>
+              <a className="btn btn-ghost" href="https://whatsapp.com/channel/" target="_blank" rel="noopener noreferrer" style={{ background: "rgba(255,255,255,.12)", borderColor: "rgba(255,255,255,.35)", color: "#fff" }}>💬 Join WhatsApp</a>
             </div>
           </div>
         </div>

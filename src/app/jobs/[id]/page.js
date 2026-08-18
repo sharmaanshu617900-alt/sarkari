@@ -127,20 +127,20 @@ export default async function JobDetail({ params }) {
               <p style={{ color: 'var(--text-2)', fontSize: '14px', marginBottom: '16px' }}>Prepare for this exam with official materials.</p>
               
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
-                <a href="#" className="card" style={{ padding: '16px', display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none', color: 'inherit' }}>
+                <Link href={`/jobs?type=syllabus&q=${encodeURIComponent(post.dept)}`} className="card" style={{ padding: '16px', display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none', color: 'inherit' }}>
                   <div style={{ fontSize: '24px' }}>📄</div>
                   <div>
                     <div style={{ fontWeight: 700, fontSize: '14px' }}>Official Syllabus</div>
-                    <div style={{ fontSize: '12px', color: 'var(--brand)' }}>Download PDF</div>
+                    <div style={{ fontSize: '12px', color: 'var(--brand)' }}>Search PDF</div>
                   </div>
-                </a>
-                <a href="#" className="card" style={{ padding: '16px', display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none', color: 'inherit' }}>
+                </Link>
+                <Link href={`/jobs?q=${encodeURIComponent(post.dept)}`} className="card" style={{ padding: '16px', display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none', color: 'inherit' }}>
                   <div style={{ fontSize: '24px' }}>📝</div>
                   <div>
                     <div style={{ fontWeight: 700, fontSize: '14px' }}>Previous Year Papers</div>
-                    <div style={{ fontSize: '12px', color: 'var(--brand)' }}>View PYQs</div>
+                    <div style={{ fontSize: '12px', color: 'var(--brand)' }}>Search PYQs</div>
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
 
