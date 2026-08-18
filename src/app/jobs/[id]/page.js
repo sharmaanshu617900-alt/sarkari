@@ -8,6 +8,32 @@ import SaveJobBtn from '@/components/SaveJobBtn';
 
 export const dynamic = 'force-dynamic';
 
+export async function generateMetadata({ params }) {
+  const resolvedParams = await params;
+  const id = resolvedParams.id;
+  const post = getPostById(id);
+
+  if (!post) {
+    return { title: 'Post Not Found - Sarkari Updates' };
+  }
+
+  const defaultKeywords = "sarkari result, govt jobs, online form, admit card";
+  const dynamicKeywords = post.keywords ? post.keywords.join(", ") : (post.tags ? post.tags.join(", ") : "");
+  const finalKeywords = dynamicKeywords ? `${dynamicKeywords}, ${defaultKeywords}` : defaultKeywords;
+
+  return {
+    title: `${post.title} | Sarkari Updates`,
+    description: post.description,
+    keywords: finalKeywords,
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      type: 'article',
+      url: `https://www.sarkariupdates.in/jobs/${id}`,
+    }
+  };
+}
+
 const TYPE_LABELS = {
   job: '💼 Sarkari Job',
   admit: '🎫 Admit Card',
