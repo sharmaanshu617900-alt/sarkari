@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "eslint",
     "scrape": "node scripts/scraper.js",
-    "cron": "node scripts/cron.js --loop 2"
+    "cron": "node scripts/cron.js --loop 2",
+    "notify": "node scripts/notify-google.js"
   },
   "dependencies": {
     "next": "16.3.1",
